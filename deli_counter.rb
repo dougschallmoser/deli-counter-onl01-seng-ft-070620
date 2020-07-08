@@ -1,6 +1,7 @@
 
 # Write your code here.
 
+
 katz_deli = []
 
 def line(katz_deli)
@@ -8,11 +9,11 @@ def line(katz_deli)
     if katz_deli.length == 0
         puts "The line is currently empty."
     else
-        line_array = []
+        line_array = "The line is currently:"
         katz_deli.each_with_index do |name, index| 
-            line_array.push(" #{index + 1}. #{name}")
+            line_array << (" #{index + 1}. #{name}")
         end 
-        puts "The line is currently:#{line_array.join}"
+        puts line_array 
     end
 end 
 
@@ -29,3 +30,16 @@ def now_serving(katz_deli)
         katz_deli.shift()
     end 
 end 
+
+# def line(katz_deli)
+    
+#     if katz_deli.length == 0
+#         puts "The line is currently empty."
+#     else
+#         line_array = []
+#         katz_deli.each_with_index do |name, index| 
+#             line_array.push(" #{index + 1}. #{name}")
+#         end 
+#         puts "The line is currently:#{line_array.join}"
+#     end
+# end 
