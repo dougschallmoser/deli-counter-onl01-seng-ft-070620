@@ -1,45 +1,45 @@
 
-# Write your code here.
+## REWORK
 
+# 1. Build the #line method that:
+#    -Shows their current place in line
+#    -If nobody is in line, it should output:
+#       "The line is currently empty."
+# 2. Build the #take_a_number method that:
+#    -Accepts two parameters (the array for current line
+#     and a string with the name of the person
+#     joining the end of the line)
+#    -Add person to end of line
+#    -Return the persons name and position in line.
+# 3. Build the #now_serving method that:
+#    -Outputs the next person in line
+#    -Removes that person in line
+#    -If nobody is in line, it should output
+#       "There is nobody waiting to be served!"
 
-katz_deli = []
-
-def line(katz_deli)
-    
-    if katz_deli.length == 0
-        puts "The line is currently empty."
-    else
-        line_array = "The line is currently:"
-        katz_deli.each_with_index do |name, index| 
-            line_array << (" #{index + 1}. #{name}")
-        end 
-        puts line_array 
-    end
-end 
-
-def take_a_number(katz_deli, name)
-    katz_deli.push(name)
-    puts "Welcome, #{name}. You are number #{katz_deli.length} in line."
-end 
-
-def now_serving(katz_deli)
-    if katz_deli.length == 0
-        puts "There is nobody waiting to be served!"
+def line(queue)
+    queue_sentence = "The line is currently:"
+    if queue.length > 0 
+        queue.each_with_index do |name, index|
+            queue_sentence << " #{index + 1}. #{name}"
+        end
+        puts queue_sentence
     else 
-        puts "Currently serving #{katz_deli[0]}."
-        katz_deli.shift()
+        puts "The line is currently empty."
     end 
 end 
 
-# def line(katz_deli)
-    
-#     if katz_deli.length == 0
-#         puts "The line is currently empty."
-#     else
-#         line_array = []
-#         katz_deli.each_with_index do |name, index| 
-#             line_array.push(" #{index + 1}. #{name}")
-#         end 
-#         puts "The line is currently:#{line_array.join}"
-#     end
-# end 
+def take_a_number(array, last_person)
+    array.push(last_person)
+    puts "Welcome, #{last_person}. You are number #{array.length} in line."
+end 
+
+def now_serving(array)
+    if array.length > 0
+        puts "Currently serving #{array[0]}."
+        array.shift()
+    else
+        puts "There is nobody waiting to be served!"
+    end
+end 
+
